@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-wrap mx-auto antialiased leading-tight">
         <alert></alert>
-        
+
         <app-header></app-header>
 
         <set-username v-if="auth && !hasUsername"></set-username>
@@ -20,14 +20,15 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 
-import AppHeader from './AppHeader'
+//import AppHeader from './AppHeader'
 import AppMenu from './AppMenu'
 import NewDiscussion from '../components/NewDiscussion'
 import Alert from '../components/Alert'
 import SetUsername from '../components/SetUsername'
 
 export default {
-    components: { AppHeader, AppMenu, NewDiscussion, Alert, SetUsername },
+    //components: { AppHeader, AppMenu, NewDiscussion, Alert, SetUsername },
+    components: { AppMenu, NewDiscussion, Alert, SetUsername },
     props: {
         appName: String,
         page: Number,
@@ -36,7 +37,7 @@ export default {
         hasUsername: Boolean
     },
     created() {
-        this.setAuth(this.logged)        
+        this.setAuth(this.logged)
         this.setName(this.appName)
         this.setTitle(this.appName)
         this.setCategories(this.categories)
@@ -67,7 +68,7 @@ export default {
             } else {
                 document.title = this.title + ' | ' + this.name
             }
-            
+
         }
     }
 }
